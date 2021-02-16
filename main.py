@@ -9,6 +9,8 @@ bot = Bot(name="Amos", command_prefix=".", intents=Intents.all())
 bot.config = config
 bot.VERSION = "1.0.0"
 
-bot.load_initial_cogs()
+bot.load_initial_cogs(
+    "cogs.core.core",
+)
 
 bot.run(config["token"])
