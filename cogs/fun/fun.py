@@ -1,5 +1,7 @@
 from discord import Embed
 from discord.ext import commands
+from discord.ext.commands.cooldowns import BucketType
+
 
 from templatebot import Bot
 
@@ -8,7 +10,8 @@ class Fun(commands.Cog):
 
     def __init__(self, bot: Bot):
         self.bot = bot
-
+    
+    @commands.cooldown(1, 60, BucketType.member) 
     @commands.command(name="duckgen")
     async def duckgen(self, ctx: commands.Context, duckname = None):
       name = duckname or ctx.author.name
